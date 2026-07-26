@@ -1,0 +1,24 @@
+@use "tokens" as token;
+
+@mixin tablet {
+  @media (min-width: token.$breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: token.$breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin focus-ring {
+  outline: 0.125rem solid token.$color-accent;
+  outline-offset: 0.25rem;
+}
+
+@mixin page-width {
+  width: min(100%, token.$content-width);
+  margin-inline: auto;
+  padding-inline: token.$page-gutter;
+}

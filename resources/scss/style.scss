@@ -1,0 +1,8 @@
+@use "base/reset";
+@use "base/global";
+@use "layouts/site";
+@use "components/carousel";
+@use "pages/home";
+
+// Single production entry. Keep the order explicit and the partials consumer-led.
+@layer reset, base, layout, components, pages;

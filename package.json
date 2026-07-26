@@ -1,0 +1,46 @@
+{
+  "name": "portfolio-lite",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "packageManager": "npm@10.8.2",
+  "scripts": {
+    "dev": "concurrently --kill-others-on-fail --names vite,php \"npm:dev:vite\" \"npm:dev:php\"",
+    "dev:vite": "vite --host 0.0.0.0",
+    "dev:php": "cross-env VITE_DEV_SERVER=http://localhost:5173 node scripts/php-server.mjs --host=localhost:8080",
+    "watch": "concurrently --kill-others-on-fail --names types,build \"npm:watch:types\" \"npm:watch:build\"",
+    "watch:types": "tsc --noEmit --watch --preserveWatchOutput",
+    "watch:build": "vite build --watch",
+    "lint:project": "node scripts/validate-project.mjs",
+    "typecheck": "tsc --noEmit",
+    "compile": "vite build",
+    "build": "npm run typecheck && npm run compile",
+    "build:debug": "vite build --mode development --sourcemap",
+    "package:cafe24": "npm run build && node scripts/package-cafe24.mjs",
+    "preview": "node scripts/php-server.mjs --host=127.0.0.1:4173",
+    "test": "vitest run resources/ts",
+    "test:browser": "playwright test",
+    "verify": "npm run lint:project && npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@barba/core": "^2.10.3",
+    "gsap": "^3.13.0",
+    "lenis": "^1.3.25",
+    "swiper": "^14.0.6",
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^26.1.1",
+    "@types/three": "^0.185.1",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "sass": "^1.101.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.1.5",
+    "vitest": "^4.1.10"
+  }
+}

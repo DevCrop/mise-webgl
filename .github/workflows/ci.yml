@@ -1,0 +1,97 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Node
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 20.19.5
+          package-manager-cache: false
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
+
+      - name: Typecheck and unit test
+        run: |
+          npm run typecheck
+          npm test
+
+      - name: Production build
+        run: npm run build
+
+      - name: Validate Compose
+        run: docker compose config --quiet
+
+      - name: Validate Dockerfile
+        run: docker build --check .
+
+      - name: Start production container
+        run: docker compose up --build --detach --wait
+
+      - name: Verify PHP and HTTP
+        run: |
+          docker compose exec -T web php -r 'exit(PHP_MAJOR_VERSION === 8 && PHP_MINOR_VERSION === 2 ? 0 : 1);'
+          docker compose exec -T web sh -c "find /var/www/app -name '*.php' -type f -print0 | xargs -0 -n1 php -l"
+          curl --fail --silent --show-error --max-time 10 http://127.0.0.1:8080/ > /dev/null
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Browser test against container
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:8080
+        run: npm run test:browser
+
+      - name: Build Cafe24 package
+        run: npm run package:cafe24
+
+      - name: Upload Cafe24 package
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: cafe24-${{ github.sha }}
+          path: .release/cafe24
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Stop production container
+        if: always()
+        run: docker compose down --remove-orphans
+
+  required:
+    name: Required
+    if: always()
+    needs:
+      - verify
+    runs-on: ubuntu-24.04
+    permissions: {}
+    steps:
+      - name: Enforce required result
+        env:
+          VERIFY_RESULT: ${{ needs.verify.result }}
+        run: test "$VERIFY_RESULT" = "success"

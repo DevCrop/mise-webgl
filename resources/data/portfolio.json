@@ -1,0 +1,42 @@
+{
+  "profile": {
+    "name": "Your Name",
+    "role": "Creative Developer",
+    "location": "Seoul, KR",
+    "availability": "Open to selected collaborations",
+    "introduction": "디자인과 기술 사이에서 오래 기억되는 디지털 경험을 만듭니다.",
+    "email": "hello@example.com"
+  },
+  "projects": [
+    {
+      "slug": "aurora-field",
+      "title": "Aurora Field",
+      "category": "Digital Flagship",
+      "year": "2026",
+      "summary": "빛의 밀도와 움직임으로 설계한 디지털 플래그십.",
+      "description": "실시간 그래픽과 절제된 타이포그래피를 연결해 탐색 자체가 브랜드 경험이 되도록 구성한 프로젝트입니다.",
+      "services": ["Creative Direction", "Three.js", "Interaction"],
+      "accent": "#9ef2ff"
+    },
+    {
+      "slug": "kinetic-garden",
+      "title": "Kinetic Garden",
+      "category": "Cultural Experience",
+      "year": "2025",
+      "summary": "스크롤에 반응하며 생장하는 가상의 정원.",
+      "description": "자연의 리듬을 모션 시스템으로 번역하고 모바일에서도 같은 감각을 유지하도록 제작한 웹 경험입니다.",
+      "services": ["Experience Design", "Motion", "WebGL"],
+      "accent": "#d8ff8f"
+    },
+    {
+      "slug": "quiet-signal",
+      "title": "Quiet Signal",
+      "category": "Editorial System",
+      "year": "2025",
+      "summary": "정보의 밀도와 여백을 조율한 디지털 아카이브.",
+      "description": "콘텐츠가 중심이 되는 그리드와 유연한 디자인 토큰으로 긴 호흡의 읽기 경험을 설계했습니다.",
+      "services": ["Art Direction", "Frontend", "Design System"],
+      "accent": "#ffb9a8"
+    }
+  ]
+}

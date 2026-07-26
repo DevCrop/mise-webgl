@@ -1,0 +1,127 @@
+@use "../abstract/mixins";
+@use "../abstract/tokens" as token;
+
+@layer pages {
+  .home-hero,
+  .work-index,
+  .contact-section {
+    @include mixins.page-width;
+  }
+
+  .home-hero {
+    display: grid;
+    min-height: calc(100svh - 5rem);
+    grid-template-rows: auto 1fr auto;
+    gap: 2rem;
+    padding-top: clamp(5rem, 10vh, 8rem);
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  }
+
+  .home-hero > * {
+    min-width: 0;
+  }
+
+  .eyebrow {
+    color: token.$color-accent;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .home-hero__title {
+    align-self: center;
+    font-family: token.$font-display;
+    font-size: clamp(4rem, 13vw, 12rem);
+    font-weight: 600;
+    line-height: 0.76;
+    letter-spacing: -0.075em;
+    text-transform: uppercase;
+
+    span {
+      display: block;
+    }
+
+    span:nth-child(2) {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(244, 247, 255, 0.62);
+    }
+  }
+
+  .home-hero__meta {
+    display: grid;
+    gap: 1.25rem;
+    align-items: end;
+    color: token.$color-muted;
+
+    p {
+      max-width: 35rem;
+    }
+
+    a {
+      width: fit-content;
+      color: token.$color-text;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  }
+
+  .work-index {
+    padding-top: token.$section-space;
+    padding-bottom: token.$section-space;
+    overflow: hidden;
+  }
+
+  .section-heading {
+    display: grid;
+    gap: 1.25rem;
+    margin-bottom: clamp(3rem, 7vw, 6rem);
+
+    h2 {
+      max-width: 12ch;
+      font-family: token.$font-display;
+      font-size: clamp(2.75rem, 7vw, 7rem);
+      font-weight: 500;
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+  }
+
+  .contact-section {
+    display: grid;
+    min-height: min(52rem, 90svh);
+    align-content: center;
+    gap: 2rem;
+    padding-top: token.$section-space;
+    padding-bottom: max(token.$section-space, env(safe-area-inset-bottom));
+    border-top: 1px solid token.$color-line;
+
+    h2 {
+      font-family: token.$font-display;
+      font-size: clamp(3.25rem, 10vw, 9rem);
+      font-weight: 600;
+      line-height: 0.82;
+      letter-spacing: -0.07em;
+    }
+
+    > a {
+      width: fit-content;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid token.$color-accent;
+      color: token.$color-accent;
+      font-size: clamp(1rem, 2vw, 1.4rem);
+    }
+  }
+
+  @include mixins.tablet {
+    .home-hero__meta {
+      grid-template-columns: 1fr auto;
+    }
+
+    .section-heading {
+      grid-template-columns: 1fr 3fr;
+      align-items: start;
+    }
+  }
+}
