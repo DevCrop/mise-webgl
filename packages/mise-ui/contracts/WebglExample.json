@@ -1,0 +1,15 @@
+{
+  "id": "mise.docs.webgl-example.v1",
+  "element": "section",
+  "props": {
+    "title": "string",
+    "description": "string"
+  },
+  "slots": {
+    "surface": "WebglSurface"
+  },
+  "states": ["loading", "ready", "fallback"],
+  "keyboard": [],
+  "focus": "none",
+  "noJs": "Surface fallback와 HTML 설명을 표시하며 문서 navigation을 유지한다."
+}

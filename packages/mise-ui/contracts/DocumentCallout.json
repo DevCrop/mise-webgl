@@ -1,0 +1,10 @@
+{
+  "id": "mise.docs.document-callout.v1",
+  "element": "aside",
+  "props": {},
+  "slots": { "content": "InlineContent" },
+  "states": [],
+  "keyboard": [],
+  "focus": "none",
+  "noJs": "강조 본문을 그대로 읽을 수 있다."
+}

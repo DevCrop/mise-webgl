@@ -1,0 +1,10 @@
+{
+  "id": "mise.docs.navigation-section.v1",
+  "element": "section",
+  "props": { "label": "string" },
+  "slots": { "items": "list<NavLink>" },
+  "states": [],
+  "keyboard": [],
+  "focus": "document-order",
+  "noJs": "section별 navigation을 표시한다."
+}

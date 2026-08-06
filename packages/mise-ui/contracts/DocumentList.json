@@ -1,0 +1,10 @@
+{
+  "id": "mise.docs.document-list.v1",
+  "element": "ol|ul",
+  "props": { "ordered": "boolean" },
+  "slots": { "items": "list<DocumentListItem>" },
+  "states": [],
+  "keyboard": [],
+  "focus": "none",
+  "noJs": "native list 순서를 유지한다."
+}

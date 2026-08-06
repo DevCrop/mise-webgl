@@ -1,0 +1,10 @@
+{
+  "id": "mise.docs.inline-text.v1",
+  "element": "text",
+  "props": { "text": "string" },
+  "slots": {},
+  "states": [],
+  "keyboard": [],
+  "focus": "none",
+  "noJs": "escaped text를 표시한다."
+}

@@ -1,0 +1,75 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/variables";
+
+@layer mise.layout {
+  .mise-l-docs-shell {
+    display: grid;
+    grid-template-areas: "header" "sidebar" "article" "toc";
+    min-height: var(--mise-viewport-stable);
+  }
+
+  .mise-l-docs-shell__header {
+    position: sticky;
+    z-index: variables.layer(header);
+    top: 0;
+    grid-area: header;
+    min-height: var(--mise-header-height);
+    border-bottom: 1px solid var(--mise-color-line);
+    background: color-mix(in srgb, var(--mise-color-background) 92%, transparent);
+    backdrop-filter: blur(1rem);
+  }
+
+  .mise-l-docs-shell__sidebar,
+  .mise-l-docs-shell__toc,
+  .mise-l-docs-shell__article {
+    padding: functions.fluid(20, 32);
+  }
+
+  .mise-l-docs-shell__sidebar {
+    grid-area: sidebar;
+    border-bottom: 1px solid var(--mise-color-line);
+    background: color-mix(in srgb, var(--mise-color-surface) 44%, transparent);
+  }
+
+  .mise-l-docs-shell__article {
+    grid-area: article;
+    width: min(100%, var(--mise-content-max));
+    margin-inline: auto;
+    padding-block: functions.fluid(48, 88) functions.fluid(80, 144);
+    padding-inline: var(--mise-page-gutter);
+  }
+
+  .mise-l-docs-shell__toc {
+    grid-area: toc;
+    border-top: 1px solid var(--mise-color-line);
+  }
+
+  @include mixins.mq(lg) {
+    .mise-l-docs-shell {
+      grid-template-areas: "header header header" "sidebar article toc";
+      grid-template-columns: var(--mise-sidebar-width) minmax(0, 1fr) var(--mise-toc-width);
+      grid-template-rows: auto 1fr;
+      min-height: var(--mise-viewport-dynamic);
+    }
+
+    .mise-l-docs-shell__sidebar,
+    .mise-l-docs-shell__toc {
+      position: sticky;
+      top: var(--mise-header-height);
+      align-self: start;
+      max-height: calc(100dvh - var(--mise-header-height));
+      overflow: auto;
+      border-block: 0;
+    }
+
+    .mise-l-docs-shell__sidebar {
+      border-right: 1px solid var(--mise-color-line);
+    }
+
+    .mise-l-docs-shell__toc {
+      border-left: 1px solid var(--mise-color-line);
+      background: color-mix(in srgb, var(--mise-color-background) 82%, transparent);
+    }
+  }
+}

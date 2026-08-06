@@ -1,0 +1,10 @@
+{
+  "id": "mise.docs.inline-code.v1",
+  "element": "code",
+  "props": { "text": "string" },
+  "slots": {},
+  "states": [],
+  "keyboard": [],
+  "focus": "none",
+  "noJs": "inline code를 표시한다."
+}

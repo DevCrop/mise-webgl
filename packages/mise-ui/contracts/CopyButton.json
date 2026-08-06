@@ -1,0 +1,10 @@
+{
+  "id": "mise.ui.copy-button.v1",
+  "element": "button",
+  "props": { "label": "string", "value": "string" },
+  "slots": {},
+  "states": ["data-state:copied", "data-state:error"],
+  "keyboard": ["Enter", "Space"],
+  "focus": "native-button",
+  "noJs": "copy control을 숨기고 code를 선택 가능하게 유지한다."
+}

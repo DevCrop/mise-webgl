@@ -1,0 +1,21 @@
+{
+  "id": "mise.ui.tabs.v1",
+  "element": "section",
+  "props": {
+    "label": "string",
+    "items": "list<TabItem>"
+  },
+  "slots": {},
+  "states": [
+    "aria-selected",
+    "hidden"
+  ],
+  "keyboard": [
+    "ArrowLeft",
+    "ArrowRight",
+    "Home",
+    "End"
+  ],
+  "focus": "roving-tabindex",
+  "noJs": "모든 panel을 문서 순서대로 표시한다."
+}

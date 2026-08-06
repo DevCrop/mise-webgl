@@ -1,0 +1,41 @@
+@layer mise {
+  [data-mise-surface]:not([data-mise-canvas]) {
+    --mise-surface-layer: 0;
+    --mise-fallback-layer: 2;
+    --mise-fallback-color: #a8b0bd;
+    --mise-fallback-background: #11151d;
+    --mise-fallback-border: rgba(168, 176, 189, 0.28);
+
+    display: contents;
+  }
+
+  [data-mise-canvas] {
+    position: fixed;
+    z-index: var(--mise-surface-layer);
+    inset: 0;
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  [data-mise-fallback] {
+    position: fixed;
+    z-index: var(--mise-fallback-layer);
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    display: none;
+    max-width: min(26rem, calc(100vw - 2rem));
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--mise-fallback-border);
+    border-radius: 999px;
+    color: var(--mise-fallback-color);
+    background: var(--mise-fallback-background);
+    font: 0.75rem/1.4 system-ui, sans-serif;
+  }
+
+  [data-mise-canvas][data-mise-state="fallback"] ~ [data-mise-fallback] {
+    display: block;
+  }
+}

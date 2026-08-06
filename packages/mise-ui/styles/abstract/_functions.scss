@@ -1,0 +1,32 @@
+@use "sass:math";
+@use "./variables" as variable;
+
+@function rem($pixels) {
+  @if not math.is-unitless($pixels) {
+    @error "`rem()` expects a unitless pixel value.";
+  }
+  @return math.div($pixels, 16) * 1rem;
+}
+
+@function fluid(
+  $minimum,
+  $maximum,
+  $viewport-minimum: variable.$viewport-min,
+  $viewport-maximum: variable.$viewport-max
+) {
+  @if $minimum >= $maximum {
+    @error "`fluid()` minimum must be lower than maximum.";
+  }
+  @if $viewport-minimum >= $viewport-maximum {
+    @error "`fluid()` viewport range is invalid.";
+  }
+
+  $slope: math.div($maximum - $minimum, $viewport-maximum - $viewport-minimum) * 100;
+  $intercept: $minimum - math.div($slope * $viewport-minimum, 100);
+
+  @return clamp(
+    rem($minimum),
+    calc(#{$slope}vw + #{rem($intercept)}),
+    rem($maximum)
+  );
+}

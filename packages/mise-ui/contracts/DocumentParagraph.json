@@ -1,0 +1,10 @@
+{
+  "id": "mise.docs.document-paragraph.v1",
+  "element": "p",
+  "props": {},
+  "slots": { "content": "InlineContent" },
+  "states": [],
+  "keyboard": [],
+  "focus": "none",
+  "noJs": "본문을 그대로 읽을 수 있다."
+}

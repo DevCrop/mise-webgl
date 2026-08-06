@@ -1,0 +1,10 @@
+{
+  "id": "mise.ui.theme-switch.v1",
+  "element": "div",
+  "props": { "theme": "light|dark" },
+  "slots": {},
+  "states": ["aria-pressed", "data-mise-theme"],
+  "keyboard": ["Enter", "Space"],
+  "focus": "native-button",
+  "noJs": "prefers-color-scheme token을 사용한다."
+}

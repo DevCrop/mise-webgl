@@ -1,0 +1,22 @@
+{
+  "name": "@mise-examples/host-consumer",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Reference Host that consumes mise-webgl from npm or workspace.",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "verify": "npm run typecheck"
+  },
+  "dependencies": {
+    "mise-webgl": "0.1.0",
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@types/three": "^0.185.1",
+    "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

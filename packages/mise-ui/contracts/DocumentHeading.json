@@ -1,0 +1,10 @@
+{
+  "id": "mise.docs.document-heading.v1",
+  "element": "heading",
+  "props": { "id": "HeadingId", "level": "2|3|4|5|6" },
+  "slots": { "content": "InlineContent" },
+  "states": [],
+  "keyboard": [],
+  "focus": "anchor-target",
+  "noJs": "Heading과 anchor가 그대로 유지된다."
+}

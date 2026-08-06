@@ -1,0 +1,23 @@
+{
+  "name": "mise-php",
+  "version": "0.2.0-rc.1",
+  "description": "Framework-neutral PHP SSR component contracts for MISE web interfaces.",
+  "type": "module",
+  "private": true,
+  "license": "UNLICENSED",
+  "files": [
+    "dist",
+    "docs",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node scripts/Build.mjs",
+    "test": "node --test tests/Package.test.mjs",
+    "test:php": "php tests/Lint.php && php tests/Run.php",
+    "verify": "npm test && npm run build",
+    "prepack": "npm run verify"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

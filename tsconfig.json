@@ -4,6 +4,19 @@
     "useDefineForClassFields": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "paths": {
+      "mise-webgl": ["./packages/mise/src/Index.ts"],
+      "mise-webgl/blender": ["./packages/mise/src/Blender.ts"],
+      "mise-webgl/three": ["./packages/mise/src/Three.ts"],
+      "mise-webgl/clock": ["./packages/mise/src/Clock.ts"],
+      "mise-webgl/container": ["./packages/mise/src/Container.ts"],
+      "mise-webgl/gsap": ["./packages/mise/src/Gsap.ts"],
+      "mise-webgl/lenis": ["./packages/mise/src/Lenis.ts"],
+      "mise-webgl/barba": ["./packages/mise/src/Barba.ts"],
+      "mise-webgl/console": ["./packages/mise/src/Console.ts"],
+      "mise-webgl/playground": ["./packages/mise/src/Playground.ts"],
+      "mise-webgl/testing": ["./packages/mise/src/Testing.ts"]
+    },
     "resolveJsonModule": true,
     "strict": true,
     "noUnusedLocals": true,
@@ -11,7 +24,10 @@
     "skipLibCheck": true,
     "noEmit": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "types": ["vite/client", "node"]
+    "types": ["node"]
   },
-  "include": ["resources/ts", "vite.config.ts", "playwright.config.ts"]
+  "include": [
+    "packages/mise/src",
+    "scripts/fixtures/mise-dogfood"
+  ]
 }

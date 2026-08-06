@@ -1,0 +1,15 @@
+{
+  "id": "mise.ui.dialog.v1",
+  "element": "dialog",
+  "props": {
+    "label": "string"
+  },
+  "slots": {
+    "content": "Slot",
+    "footer": "Slot"
+  },
+  "states": ["open"],
+  "keyboard": ["Escape", "Tab", "Shift+Tab"],
+  "focus": "modal-autofocus-and-trigger-return",
+  "noJs": "핵심 내용은 본문에도 제공하고 dialog는 보조 설명만 담는다."
+}

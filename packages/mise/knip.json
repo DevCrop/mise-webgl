@@ -1,0 +1,26 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": [
+    "src/Index.ts",
+    "src/Clock.ts",
+    "src/Container.ts",
+    "src/Three.ts",
+    "src/Blender.ts",
+    "src/Gsap.ts",
+    "src/Lenis.ts",
+    "src/Barba.ts",
+    "src/Console.ts",
+    "src/Playground.ts",
+    "src/Testing.ts",
+    "tests/unit/**/*.test.ts"
+  ],
+  "project": [
+    "src/**/*.{ts,d.ts}",
+    "tests/**/*.ts",
+    "*.config.{ts,mjs}"
+  ],
+  "ignoreDependencies": [
+    "@arethetypeswrong/cli",
+    "publint"
+  ]
+}

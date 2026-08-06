@@ -1,0 +1,27 @@
+{
+  "id": "mise.ui.button.v1",
+  "element": "button",
+  "props": {
+    "label": "string",
+    "variant": "primary|secondary|quiet",
+    "size": "compact|default|touch",
+    "disabled": "boolean",
+    "busy": "boolean"
+  },
+  "slots": {
+    "leading": "optional Component",
+    "content": "required Text",
+    "trailing": "optional Component"
+  },
+  "states": [
+    "native:disabled",
+    "aria-disabled:true",
+    "aria-busy:true",
+    "pseudo:hover",
+    "pseudo:active",
+    "pseudo:focus-visible"
+  ],
+  "keyboard": ["Enter", "Space"],
+  "focus": "native button focus with a visible 2px minimum outline",
+  "noJs": "일반 action은 native button으로 남고 JS 전용 action은 ready 전 숨긴다."
+}

@@ -1,0 +1,22 @@
+@layer mise-playground {
+  [data-mise-debug] {
+    position: fixed;
+    z-index: var(--mise-debug-layer, 1000);
+    right: max(0.75rem, env(safe-area-inset-right));
+    bottom: max(0.75rem, env(safe-area-inset-bottom));
+    max-width: calc(100vw - 1.5rem - env(safe-area-inset-left) - env(safe-area-inset-right));
+    max-height: calc(100dvh - 1.5rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    overflow: auto;
+    pointer-events: auto;
+  }
+
+  [data-mise-debug] .lil-gui {
+    --background-color: rgba(2, 7, 14, 0.9);
+    --title-background-color: rgba(9, 22, 37, 0.96);
+    --widget-color: rgba(51, 78, 98, 0.8);
+    --hover-color: rgba(68, 108, 133, 0.9);
+    --focus-color: rgba(83, 210, 236, 0.72);
+    --number-color: #8eefff;
+    --string-color: #b9f7df;
+  }
+}

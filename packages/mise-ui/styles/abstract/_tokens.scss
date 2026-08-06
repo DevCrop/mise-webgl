@@ -1,0 +1,30 @@
+@use "./colors";
+@use "./functions";
+@use "./variables";
+
+@mixin theme($name) {
+  --mise-color-background: #{colors.get(background, $name)};
+  --mise-color-surface: #{colors.get(surface, $name)};
+  --mise-color-surface-strong: #{colors.get(surface-strong, $name)};
+  --mise-color-text: #{colors.get(text, $name)};
+  --mise-color-muted: #{colors.get(muted, $name)};
+  --mise-color-line: #{colors.get(line, $name)};
+  --mise-color-accent: #{colors.get(accent, $name)};
+  --mise-color-focus: #{colors.get(focus, $name)};
+}
+
+@mixin foundation {
+  --mise-font-base: #{variables.font-family(base)};
+  --mise-font-display: #{variables.font-family(display)};
+  --mise-font-mono: #{variables.font-family(mono)};
+  --mise-page-gutter: #{functions.fluid(variables.$page-gutter-min, variables.$page-gutter-max)};
+  --mise-header-height: #{functions.fluid(60, 68)};
+  --mise-sidebar-width: #{functions.fluid(232, 280)};
+  --mise-toc-width: #{functions.fluid(200, 240)};
+  --mise-content-max: 50rem;
+  --mise-radius-sm: 0.625rem;
+  --mise-radius-md: 1rem;
+  --mise-radius-pill: 999px;
+  --mise-viewport-stable: 100svh;
+  --mise-viewport-dynamic: 100dvh;
+}

@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "threshold": 95,
+  "evidence": [
+    {
+      "id": "architecture-contract",
+      "category": "architecture",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["packages/mise/docs/WEB-FOUNDATION.md", "packages/mise/docs/DECISIONS.md"]
+    },
+    {
+      "id": "package-dependency",
+      "category": "architecture",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["package.json", "packages/mise-ui/package.json", "packages/mise-php/package.json", "apps/mise-docs/package.json", "scripts/web-foundation/Policy.test.mjs"]
+    },
+    {
+      "id": "independent-consumer",
+      "category": "architecture",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["apps/mise-docs/scripts/Build.mjs", "apps/mise-docs/tests/Artifact.test.mjs"]
+    },
+    {
+      "id": "canonical-index",
+      "category": "docs",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["packages/mise/docs/README.md", "docs/README.md"]
+    },
+    {
+      "id": "portable-official-docs",
+      "category": "docs",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["packages/mise/scripts/ValidatePublicDocs.mjs"]
+    },
+    {
+      "id": "rules-and-traceability",
+      "category": "docs",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["packages/mise/docs/HTML-COMPONENTS.md", "packages/mise/docs/SCSS-SYSTEM.md", "packages/mise/docs/PROMPT-CATALOG.md"]
+    },
+    {
+      "id": "component-contract-runtime",
+      "category": "html",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["packages/mise-ui/src/ComponentContract.ts", "packages/mise-ui/contracts/ComponentContract.schema.json"]
+    },
+    {
+      "id": "php-component-only-ssr",
+      "category": "html",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["packages/mise-php/src/PhpComponentRenderer.php", "packages/mise-php/src/TemplateRegistry.php", "packages/mise-php/tests/Run.php"]
+    },
+    {
+      "id": "mvc-boundary",
+      "category": "html",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["apps/mise-docs/resources/php/Router.php", "apps/mise-docs/resources/php/DocsController.php", "apps/mise-docs/resources/php/DocsPageModel.php", "apps/mise-docs/resources/php/DocsView.php", "apps/mise-docs/tests/Run.php"]
+    },
+    {
+      "id": "controller-state-contract",
+      "category": "html",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["packages/mise-ui/src/TabsController.ts", "packages/mise-ui/contracts/Tabs.json", "packages/mise-ui/tests/unit/Controller.test.ts"]
+    },
+    {
+      "id": "existing-fluid-foundation",
+      "category": "scss",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["packages/mise-ui/styles/abstract/_functions.scss", "packages/mise-ui/styles/abstract/_variables.scss"]
+    },
+    {
+      "id": "mise-ui-token-mapping",
+      "category": "scss",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["packages/mise-ui/styles/abstract/_functions.scss", "packages/mise-ui/styles/abstract/_tokens.scss"]
+    },
+    {
+      "id": "component-style-browser",
+      "category": "scss",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["packages/mise-ui/styles/components/_index.scss", "tests/docs/MiseDocs.spec.ts"]
+    },
+    {
+      "id": "webgl-core-contract",
+      "category": "webgl",
+      "points": 10,
+      "status": "pass",
+      "evidence": ["packages/mise/src/Index.ts", "packages/mise/docs/VERIFICATION.md"]
+    },
+    {
+      "id": "webgl-ui-integration",
+      "category": "webgl",
+      "points": 5,
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "keyboard-focus",
+      "category": "accessibility",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["packages/mise-ui/src/TabsController.ts", "packages/mise-ui/src/StandardControllers.ts", "tests/docs/MiseDocs.spec.ts"]
+    },
+    {
+      "id": "browser-accessibility",
+      "category": "accessibility",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["tests/docs/MiseDocs.spec.ts", "playwright.docs.config.ts"]
+    },
+    {
+      "id": "prompt-privacy-policy",
+      "category": "security",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["packages/mise/docs/PROMPT-CATALOG.md", "scripts/web-foundation/Policy.mjs", "apps/mise-docs/prompts/README.md"]
+    },
+    {
+      "id": "php-escape-package-leak",
+      "category": "security",
+      "points": 5,
+      "status": "pass",
+      "evidence": ["packages/mise-php/src/Escaper.php", "packages/mise-php/src/UrlPolicy.php", "packages/mise-php/tests/Run.php", "apps/mise-docs/tests/Artifact.test.mjs"]
+    }
+  ],
+  "criticalGates": [
+    { "id": "user-change-preserved", "status": "pass", "evidence": ["AGENTS.md"] },
+    { "id": "package-cycle-zero", "status": "pass", "evidence": ["scripts/web-foundation/Policy.mjs", "scripts/web-foundation/Policy.test.mjs"] },
+    { "id": "component-only-dom", "status": "pass", "evidence": ["packages/mise/scripts/ValidatePublicDocs.mjs", "packages/mise-php/src/TemplateRegistry.php"] },
+    { "id": "escaped-output-safe-url", "status": "pass", "evidence": ["packages/mise-php/src/Escaper.php", "packages/mise-php/src/UrlPolicy.php", "packages/mise-php/tests/Run.php"] },
+    { "id": "direct-clamp-zero", "status": "pass", "evidence": ["scripts/web-foundation/Policy.mjs"] },
+    { "id": "webgl-resource-lifecycle", "status": "pass", "evidence": ["packages/mise/tests/unit/ResourceScope.test.ts", "packages/mise/tests/unit/FrameLoop.test.ts", "packages/mise/tests/unit/MiseObjectHost.test.ts", "packages/mise/docs/VERIFICATION.md"] },
+    { "id": "keyboard-focus-return", "status": "pass", "evidence": ["packages/mise-ui/src/StandardControllers.ts", "packages/mise-ui/tests/unit/Controller.test.ts", "tests/docs/MiseDocs.spec.ts"] },
+    { "id": "internal-prompt-leak-zero", "status": "pass", "evidence": ["apps/mise-docs/scripts/Build.mjs", "apps/mise-docs/tests/Artifact.test.mjs"] },
+    { "id": "package-dogfood", "status": "pass", "evidence": ["scripts/web-foundation/PackageDogfood.mjs"] },
+    { "id": "make-verify-regression-zero", "status": "pass", "evidence": ["packages/mise/docs/VERIFICATION.md"] }
+  ]
+}

@@ -1,0 +1,73 @@
+name: Docs
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      docs_base_path:
+        description: GitHub Pages base path
+        required: false
+        default: /mise-webgl
+      docs_output_dir:
+        description: Artifact directory relative to repository root
+        required: false
+        default: apps/mise-docs/dist/public
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build static docs
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Node
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version-file: .nvmrc
+          package-manager-cache: false
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@2.36.0
+        with:
+          php-version: "8.2"
+          tools: none
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Build static documentation site
+        env:
+          MISE_DOCS_BASE_PATH: ${{ inputs.docs_base_path || '/mise-webgl' }}
+        run: npm run build:docs
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@ec475cce12cc030bef4d9a9edc9e9240e9b2a2b9 # v4.0.0
+        with:
+          path: ${{ inputs.docs_output_dir || 'apps/mise-docs/dist/public' }}
+
+  deploy:
+    name: Deploy GitHub Pages
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@b017bd23910fcc3bfd91ac82ed9c27963b1475b2 # v4.0.5

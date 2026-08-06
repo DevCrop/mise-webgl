@@ -1,0 +1,10 @@
+{
+  "id": "mise.ui.disclosure.v1",
+  "element": "nav",
+  "props": { "label": "string", "expanded": "boolean" },
+  "slots": { "content": "list<Component>" },
+  "states": ["aria-expanded", "hidden"],
+  "keyboard": ["Enter", "Space"],
+  "focus": "native-button",
+  "noJs": "content를 펼친 상태로 표시한다."
+}

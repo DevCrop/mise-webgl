@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mise.local/contracts/component-contract.schema.json",
+  "title": "MISE Component Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "element",
+    "props",
+    "slots",
+    "states",
+    "keyboard",
+    "focus",
+    "noJs"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^mise\\.[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*\\.v[1-9][0-9]*$"
+    },
+    "element": { "type": "string", "minLength": 1 },
+    "props": { "type": "object" },
+    "slots": { "type": "object" },
+    "states": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "keyboard": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "focus": { "type": "string", "minLength": 1 },
+    "noJs": { "type": "string", "minLength": 1 }
+  }
+}

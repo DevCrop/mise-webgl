@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mise.local/schemas/prompt.json",
+  "title": "MISE Prompt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "scope",
+    "category",
+    "status",
+    "version",
+    "appliesTo",
+    "tags",
+    "sourceSummary",
+    "relatedAdr",
+    "relatedDocs",
+    "requiredInputs",
+    "passCriteria",
+    "lastVerified",
+    "replacement"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^mise\\.[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*\\.v[1-9][0-9]*$"
+    },
+    "title": { "type": "string", "minLength": 1 },
+    "scope": { "enum": ["internal", "public"] },
+    "category": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "status": { "enum": ["draft", "reviewed", "verified", "deprecated"] },
+    "version": { "type": "integer", "minimum": 1 },
+    "appliesTo": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+    "tags": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+    "sourceSummary": { "type": "string", "minLength": 1 },
+    "relatedAdr": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "relatedDocs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "requiredInputs": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+    "passCriteria": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+    "lastVerified": { "type": ["string", "null"] },
+    "replacement": { "type": ["string", "null"] }
+  }
+}

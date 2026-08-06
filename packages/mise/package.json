@@ -1,0 +1,158 @@
+{
+  "name": "mise-webgl",
+  "version": "0.1.0",
+  "description": "Scene-oriented TypeScript framework for Three.js/WebGL experiences.",
+  "keywords": [
+    "three.js",
+    "webgl",
+    "animation",
+    "scene",
+    "framework"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevCrop/mise-webgl.git",
+    "directory": "packages/mise"
+  },
+  "bugs": {
+    "url": "https://github.com/DevCrop/mise-webgl/issues"
+  },
+  "homepage": "https://devcrop.github.io/mise-webgl/",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "sideEffects": [
+    "./dist/Lenis.js",
+    "./dist/*.css"
+  ],
+  "files": [
+    "dist",
+    "docs",
+    "html",
+    "styles",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/Index.d.ts",
+      "import": "./dist/Index.js"
+    },
+    "./three": {
+      "types": "./dist/Three.d.ts",
+      "import": "./dist/Three.js"
+    },
+    "./blender": {
+      "types": "./dist/Blender.d.ts",
+      "import": "./dist/Blender.js"
+    },
+    "./clock": {
+      "types": "./dist/Clock.d.ts",
+      "import": "./dist/Clock.js"
+    },
+    "./container": {
+      "types": "./dist/Container.d.ts",
+      "import": "./dist/Container.js"
+    },
+    "./gsap": {
+      "types": "./dist/Gsap.d.ts",
+      "import": "./dist/Gsap.js"
+    },
+    "./lenis": {
+      "types": "./dist/Lenis.d.ts",
+      "import": "./dist/Lenis.js"
+    },
+    "./barba": {
+      "types": "./dist/Barba.d.ts",
+      "import": "./dist/Barba.js"
+    },
+    "./console": {
+      "types": "./dist/Console.d.ts",
+      "import": "./dist/Console.js"
+    },
+    "./playground": {
+      "types": "./dist/Playground.d.ts",
+      "import": "./dist/Playground.js"
+    },
+    "./styles.css": "./dist/Mise.css",
+    "./playground.css": "./dist/Playground.css",
+    "./styles.scss": {
+      "sass": "./styles/Index.scss",
+      "default": "./styles/Index.scss"
+    },
+    "./playground.scss": {
+      "sass": "./styles/Playground.scss",
+      "default": "./styles/Playground.scss"
+    },
+    "./surface.html": "./html/MiseSurface.html",
+    "./testing": {
+      "types": "./dist/Testing.d.ts",
+      "import": "./dist/Testing.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "clean": "node ../../scripts/clean-mise-package.mjs",
+    "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.test.json",
+    "build": "npm run clean && tsc -p tsconfig.build.json && npm run build:styles",
+    "build:styles": "sass --no-source-map --style=compressed styles/Index.scss dist/Mise.css && sass --no-source-map --style=compressed styles/Playground.scss dist/Playground.css",
+    "test": "vitest run --config vitest.config.ts",
+    "test:model": "vitest run --config vitest.config.ts tests/unit/LifecycleModel.test.ts",
+    "test:mutation": "node scripts/RunMutation.mjs",
+    "lint:architecture": "node scripts/ValidateArchitecture.mjs",
+    "lint:dead-code": "knip --config knip.json --no-config-hints",
+    "lint:public-docs": "node scripts/ValidatePublicDocs.mjs",
+    "api:update": "npm run build && api-extractor run --local",
+    "api:check": "npm run build && api-extractor run",
+    "verify:framework": "npm run typecheck && npm run lint:architecture && npm run lint:dead-code && npm test && npm run api:check && npm run lint:public-docs",
+    "verify:commercial": "npm run verify:framework && npm run test:mutation",
+    "prepack": "npm run typecheck && npm test && npm run build"
+  },
+  "peerDependencies": {
+    "@barba/core": "^2.10.0",
+    "gsap": "^3.13.0",
+    "lenis": "^1.3.0",
+    "lil-gui": "^0.21.0",
+    "three": "^0.185.0"
+  },
+  "peerDependenciesMeta": {
+    "@barba/core": {
+      "optional": true
+    },
+    "gsap": {
+      "optional": true
+    },
+    "lenis": {
+      "optional": true
+    },
+    "lil-gui": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.5",
+    "@barba/core": "^2.10.3",
+    "@microsoft/api-extractor": "^7.58.12",
+    "@stryker-mutator/api": "^9.6.1",
+    "@stryker-mutator/core": "^9.6.1",
+    "@stryker-mutator/vitest-runner": "^9.6.1",
+    "@types/three": "^0.185.1",
+    "es-module-lexer": "^2.3.1",
+    "fast-check": "^4.9.0",
+    "gsap": "^3.13.0",
+    "knip": "^6.29.0",
+    "lenis": "^1.3.25",
+    "lil-gui": "^0.21.0",
+    "publint": "0.3.22",
+    "sass": "^1.101.0",
+    "three": "^0.185.1",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

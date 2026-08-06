@@ -1,0 +1,10 @@
+{
+  "id": "mise.ui.on-page-toc.v1",
+  "element": "nav",
+  "props": { "label": "string" },
+  "slots": { "links": "list<Component>" },
+  "states": ["aria-current:location"],
+  "keyboard": ["Tab", "Enter"],
+  "focus": "native-link",
+  "noJs": "anchor navigation과 SSR current heading을 유지한다."
+}

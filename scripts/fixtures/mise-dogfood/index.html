@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MISE RC Dogfood</title>
+    <style>
+      body {
+        min-height: 100dvh;
+        margin: 0;
+      }
+
+      [data-dogfood-panel] {
+        position: relative;
+        width: min(32rem, 80vw);
+        height: 16rem;
+      }
+
+      [data-dogfood-local-canvas] {
+        display: block;
+        width: min(24rem, 80vw);
+        height: 12rem;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas data-mise-surface data-mise-canvas aria-hidden="true"></canvas>
+    <section data-dogfood-panel aria-label="Compositor view"></section>
+    <canvas data-dogfood-local-canvas aria-hidden="true"></canvas>
+    <script type="module" src="/ConsumerApp.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "id": "mise.docs.document-table-cell.v1",
+  "element": "th|td",
+  "props": { "header": "boolean" },
+  "slots": { "content": "InlineContent" },
+  "states": [],
+  "keyboard": [],
+  "focus": "none",
+  "noJs": "header와 data cell 의미를 유지한다."
+}

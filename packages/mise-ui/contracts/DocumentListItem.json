@@ -1,0 +1,10 @@
+{
+  "id": "mise.docs.document-list-item.v1",
+  "element": "li",
+  "props": {},
+  "slots": { "content": "InlineContent" },
+  "states": [],
+  "keyboard": [],
+  "focus": "none",
+  "noJs": "list item을 그대로 읽을 수 있다."
+}

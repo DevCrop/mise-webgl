@@ -1,0 +1,10 @@
+{
+  "id": "mise.docs.toc-link.v1",
+  "element": "a",
+  "props": { "href": "FragmentUrl", "label": "string", "nested": "boolean" },
+  "slots": {},
+  "states": ["aria-current"],
+  "keyboard": ["Enter"],
+  "focus": "native-link",
+  "noJs": "문서 anchor로 이동한다."
+}

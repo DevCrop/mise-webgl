@@ -1,0 +1,6 @@
+@layer mise.layout {
+  .mise-p-docs-home {
+    display: grid;
+    gap: var(--mise-page-gutter);
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "mise.docs.webgl-surface.v1",
+  "element": "div",
+  "props": {
+    "fallback": "string"
+  },
+  "slots": {},
+  "states": ["data-mise-state"],
+  "keyboard": [],
+  "focus": "none",
+  "noJs": "정적 fallback text를 유지한다."
+}

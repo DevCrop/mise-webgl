@@ -1,0 +1,11 @@
+@layer mise.reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  :where(button, input, textarea, select) {
+    font: inherit;
+  }
+}

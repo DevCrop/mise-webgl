@@ -4,4 +4,8 @@ public/build/
 .release/
 test-results/
 playwright-report/
+packages/mise/reports/
+packages/mise/temp/
+apps/mise-docs/temp/
+packages/mise/stryker-setup-*.js
 .DS_Store

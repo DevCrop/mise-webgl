@@ -1,0 +1,55 @@
+@use "sass:map";
+
+$viewport-min: 320 !default;
+$viewport-max: 1920 !default;
+
+$breakpoints: (
+  xs: 23.4375rem,
+  sm: 34rem,
+  md: 48rem,
+  lg: 64rem,
+  xl: 90rem,
+  2xl: 120rem,
+) !default;
+
+$font-families: (
+  base: ("Overused Grotesk", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif),
+  display: ("Overused Grotesk", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif),
+  mono: ("SFMono-Regular", Consolas, "Liberation Mono", monospace),
+) !default;
+
+$container-max: 100rem !default;
+$page-gutter-min: 20 !default;
+$page-gutter-max: 56 !default;
+
+$z-index: (
+  content: 1,
+  header: 100,
+  drawer: 200,
+  modal: 300,
+  toast: 400,
+) !default;
+
+@function breakpoint($key) {
+  $value: map.get($breakpoints, $key);
+  @if $value == null {
+    @error "Unknown breakpoint `#{$key}`.";
+  }
+  @return $value;
+}
+
+@function font-family($key) {
+  $value: map.get($font-families, $key);
+  @if $value == null {
+    @error "Unknown font family `#{$key}`.";
+  }
+  @return $value;
+}
+
+@function layer($key) {
+  $value: map.get($z-index, $key);
+  @if $value == null {
+    @error "Unknown z-index `#{$key}`.";
+  }
+  @return $value;
+}

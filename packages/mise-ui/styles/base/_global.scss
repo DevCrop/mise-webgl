@@ -1,0 +1,38 @@
+@layer mise.base {
+  body {
+    margin: 0;
+    background: var(--mise-color-background);
+    color: var(--mise-color-text);
+    font-family: var(--mise-font-base);
+    font-size: 1rem;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--mise-color-accent);
+    color: #11120f;
+  }
+
+  :focus-visible {
+    outline: 0.125rem solid var(--mise-color-focus);
+    outline-offset: 0.25rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto;
+    }
+  }
+}

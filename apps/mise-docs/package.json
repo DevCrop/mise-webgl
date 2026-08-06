@@ -1,0 +1,26 @@
+{
+  "name": "mise-docs",
+  "version": "0.2.0-rc.1",
+  "description": "Standalone PHP documentation consumer for the MISE package family.",
+  "type": "module",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "npm run build:dependencies && npm run build:client && node scripts/Build.mjs",
+    "build:client": "tsc -p tsconfig.json",
+    "build:dependencies": "npm run build --workspace mise-webgl && npm run build --workspace mise-php && npm run build --workspace mise-ui",
+    "build:static": "node scripts/ExportStatic.mjs",
+    "build:pages": "npm run build && npm run build:static",
+    "test": "node --test tests/Compiler.test.mjs tests/PromptCompiler.test.mjs && npm run build && node --test tests/Artifact.test.mjs",
+    "test:php": "php tests/Lint.php && php tests/Run.php",
+    "verify": "npm test"
+  },
+  "dependencies": {
+    "mise-webgl": "0.1.0",
+    "mise-php": "0.2.0-rc.1",
+    "mise-ui": "0.2.0-rc.1"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

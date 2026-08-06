@@ -1,46 +1,51 @@
 {
-  "name": "portfolio-lite",
+  "name": "mise-webgl-monorepo",
   "private": true,
   "version": "0.1.0",
+  "description": "MISE WebGL framework monorepo — mise-webgl, mise-ui, mise-php, and docs consumer.",
   "type": "module",
+  "workspaces": [
+    "packages/mise",
+    "packages/mise-ui",
+    "packages/mise-php",
+    "apps/mise-docs"
+  ],
   "engines": {
     "node": ">=20.19.0"
   },
   "packageManager": "npm@10.8.2",
   "scripts": {
-    "dev": "concurrently --kill-others-on-fail --names vite,php \"npm:dev:vite\" \"npm:dev:php\"",
-    "dev:vite": "vite --host 0.0.0.0",
-    "dev:php": "cross-env VITE_DEV_SERVER=http://localhost:5173 node scripts/php-server.mjs --host=localhost:8080",
-    "watch": "concurrently --kill-others-on-fail --names types,build \"npm:watch:types\" \"npm:watch:build\"",
-    "watch:types": "tsc --noEmit --watch --preserveWatchOutput",
-    "watch:build": "vite build --watch",
-    "lint:project": "node scripts/validate-project.mjs",
+    "changeset": "changeset",
+    "changeset:version": "changeset version",
+    "release:publish": "npm run verify && npm run build:mise && changeset publish",
+    "lint:project": "npm run test:web-foundation-policy && npm run score:web-foundation",
+    "test:web-foundation-policy": "node --test scripts/web-foundation/Policy.test.mjs",
+    "score:web-foundation": "node scripts/web-foundation/Score.mjs",
+    "verify:web-foundation": "npm run verify --workspace mise-ui && npm run verify --workspace mise-php && npm run verify --workspace mise-docs",
+    "package:web-foundation": "npm run verify:web-foundation && node scripts/web-foundation/PackageDogfood.mjs",
+    "test:security-headers": "node scripts/verify-security-headers.mjs --self-test",
     "typecheck": "tsc --noEmit",
-    "compile": "vite build",
-    "build": "npm run typecheck && npm run compile",
-    "build:debug": "vite build --mode development --sourcemap",
-    "package:cafe24": "npm run build && node scripts/package-cafe24.mjs",
-    "preview": "node scripts/php-server.mjs --host=127.0.0.1:4173",
-    "test": "vitest run resources/ts",
-    "test:browser": "playwright test",
-    "verify": "npm run lint:project && npm run typecheck && npm test && npm run build"
-  },
-  "dependencies": {
-    "@barba/core": "^2.10.3",
-    "gsap": "^3.13.0",
-    "lenis": "^1.3.25",
-    "swiper": "^14.0.6",
-    "three": "^0.185.1"
+    "typecheck:mise": "npm run typecheck --workspace mise-webgl",
+    "build:mise": "npm run build --workspace mise-webgl",
+    "build:docs": "npm run build:pages --workspace mise-docs",
+    "test": "npm run test:mise",
+    "test:mise": "npm run test --workspace mise-webgl",
+    "test:mise:model": "npm run test:model --workspace mise-webgl",
+    "test:mise:mutation": "npm run test:mutation --workspace mise-webgl",
+    "test:mise:dogfood": "node scripts/verify-mise-dogfood.mjs",
+    "verify:host-consumer": "node scripts/verify-host-consumer.mjs",
+    "lint:mise:architecture": "npm run lint:architecture --workspace mise-webgl",
+    "lint:mise:dead-code": "npm run lint:dead-code --workspace mise-webgl",
+    "api:mise": "npm run api:check --workspace mise-webgl",
+    "test:docs:browser": "playwright test --config playwright.docs.config.ts",
+    "package:mise": "npm run verify:framework --workspace mise-webgl && node scripts/package-mise.mjs && node scripts/verify-mise-tarball.mjs && node scripts/verify-mise-dogfood.mjs",
+    "verify": "npm run lint:project && npm run test:security-headers && npm run typecheck && npm run package:mise && npm run package:web-foundation && npm run test:mise:mutation"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.5.1",
+    "@changesets/cli": "^2.29.8",
     "@playwright/test": "^1.55.0",
     "@types/node": "^26.1.1",
-    "@types/three": "^0.185.1",
-    "concurrently": "^9.2.1",
-    "cross-env": "^10.1.0",
-    "sass": "^1.101.0",
-    "typescript": "^7.0.2",
-    "vite": "^8.1.5",
-    "vitest": "^4.1.10"
+    "typescript": "^7.0.2"
   }
 }

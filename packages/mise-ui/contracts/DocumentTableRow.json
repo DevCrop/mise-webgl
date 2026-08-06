@@ -1,0 +1,10 @@
+{
+  "id": "mise.docs.document-table-row.v1",
+  "element": "tr",
+  "props": {},
+  "slots": { "cells": "list<DocumentTableCell>" },
+  "states": [],
+  "keyboard": [],
+  "focus": "none",
+  "noJs": "table row를 유지한다."
+}

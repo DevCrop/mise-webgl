@@ -1,0 +1,10 @@
+{
+  "id": "mise.docs.document-table.v1",
+  "element": "table",
+  "props": {},
+  "slots": { "head": "list<DocumentTableRow>", "body": "list<DocumentTableRow>" },
+  "states": [],
+  "keyboard": [],
+  "focus": "native-horizontal-scroll",
+  "noJs": "table header와 body를 그대로 읽을 수 있다."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "mise.docs.prompt-card.v1",
+  "element": "article",
+  "props": {
+    "id": "DocumentId",
+    "title": "string",
+    "summary": "string",
+    "status": "PromptStatus",
+    "version": "string",
+    "evidence": "string"
+  },
+  "slots": {
+    "copy": "CodeBlock"
+  },
+  "states": [],
+  "keyboard": [],
+  "focus": "copy-control",
+  "noJs": "Prompt 본문은 읽을 수 있고 native text selection으로 복사할 수 있다."
+}

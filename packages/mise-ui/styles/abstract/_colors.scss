@@ -1,0 +1,38 @@
+@use "sass:map";
+
+$dark: (
+  background: #11120f,
+  surface: #191a17,
+  surface-strong: #20211d,
+  text: #f4f4ef,
+  muted: #a1a29b,
+  line: #34352f,
+  accent: #a3ff3f,
+  focus: #b8ff6c,
+) !default;
+
+$light: (
+  background: #f5f5f1,
+  surface: #ffffff,
+  surface-strong: #ecece6,
+  text: #171814,
+  muted: #686a62,
+  line: #dcded5,
+  accent: #73d900,
+  focus: #2f7600,
+) !default;
+
+@function get($key, $theme: dark) {
+  @if $theme != dark and $theme != light {
+    @error "Unknown color theme `#{$theme}`.";
+  }
+  $palette: $dark;
+  @if $theme == light {
+    $palette: $light;
+  }
+  $value: map.get($palette, $key);
+  @if $value == null {
+    @error "Unknown color `#{$key}`.";
+  }
+  @return $value;
+}

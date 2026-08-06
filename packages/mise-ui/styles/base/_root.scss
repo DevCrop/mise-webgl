@@ -1,0 +1,26 @@
+@use "../abstract/tokens";
+
+@layer mise.tokens {
+  :root {
+    @include tokens.foundation;
+    @include tokens.theme(dark);
+    color-scheme: dark;
+  }
+
+  :root[data-mise-theme="light"] {
+    @include tokens.theme(light);
+    color-scheme: light;
+  }
+
+  :root[data-mise-theme="dark"] {
+    @include tokens.theme(dark);
+    color-scheme: dark;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-mise-theme]) {
+      @include tokens.theme(light);
+      color-scheme: light;
+    }
+  }
+}

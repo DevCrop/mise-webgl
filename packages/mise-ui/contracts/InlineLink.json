@@ -1,0 +1,10 @@
+{
+  "id": "mise.docs.inline-link.v1",
+  "element": "a",
+  "props": { "label": "string", "href": "SafeUrl" },
+  "slots": {},
+  "states": [],
+  "keyboard": ["Enter"],
+  "focus": "native-link",
+  "noJs": "native link로 이동한다."
+}

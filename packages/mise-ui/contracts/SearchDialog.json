@@ -1,0 +1,10 @@
+{
+  "id": "mise.ui.search-dialog.v1",
+  "element": "dialog",
+  "props": { "label": "string" },
+  "slots": { "results": "list<Component>" },
+  "states": ["open", "hidden"],
+  "keyboard": ["Escape", "Tab", "Shift+Tab"],
+  "focus": "search-input-and-return-to-invoker",
+  "noJs": "search control을 숨기고 primary navigation을 유지한다."
+}

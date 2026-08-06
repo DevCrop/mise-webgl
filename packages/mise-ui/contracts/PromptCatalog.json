@@ -1,0 +1,14 @@
+{
+  "id": "mise.docs.prompt-catalog.v1",
+  "element": "section",
+  "props": {
+    "title": "string"
+  },
+  "slots": {
+    "items": "list<PromptCard>"
+  },
+  "states": [],
+  "keyboard": [],
+  "focus": "document-order",
+  "noJs": "Public Prompt와 copy source를 모두 표시한다."
+}
