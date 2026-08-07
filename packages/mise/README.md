@@ -2,6 +2,18 @@
 
 MISE는 Three.js/WebGL 경험을 Scene 단위로 구성하고 Scroll·Auto 진행, DOM motion, 자원 수명과 단일 frame loop를 통제하는 TypeScript 프레임워크다.
 
+## Compatibility (Host 정렬용)
+
+| Tool | Version |
+|---|---|
+| Node.js | `>=20.19.0 <21` (권장 `20.19.5`, `.nvmrc`) |
+| npm | `>=10.8.0` (권장 `10.8.2`) |
+| TypeScript | `^7.0.2` |
+| three | `^0.185.0` (required peer) |
+| gsap / lenis / @barba/core | optional peers — [`package.json`](./package.json) 참고 |
+
+Host CI·로컬은 위 버전을 맞춘다. 적용 절차는 [`docs/ADOPTION.md`](./docs/ADOPTION.md).
+
 ## Install
 
 ```bash
@@ -80,8 +92,7 @@ SSR markup이 필요하면 `mise-webgl/surface.html`의 data contract를 사용�
 Root entry는 optional Adapter package를 import하지 않는다. 제품 Scene, Shader, asset과 DOM selector는 Host application이 소유한다. MISE Surface selector는 package가 소유한다.
 
 전체 규격과 주제별 탐색은 package 내부
-[`docs/README.md`](./docs/README.md) 한 곳에서 시작한다. 현재 package는 license
-결정 전 accidental publish를 막기 위해 `private: true`와 `UNLICENSED`를 유지한다.
+[`docs/README.md`](./docs/README.md) 한 곳에서 시작한다.
 
 ## Maintainer Gates
 
@@ -94,6 +105,4 @@ npm run package:mise
 
 공개 API를 의도적으로 변경한 경우 review 뒤 `npm run api:update`로 `etc/mise-webgl.api.md`를 갱신한다. 이 report와 검증 script는 유지보수 자산이며 publish tarball에는 포함하지 않는다.
 `package:mise`가 publint, ATTW, NodeNext/Sass/Vite consumer와 실제 WebGL
-resource plateau까지 통과한 tarball만 release candidate로 취급한다. license 승인,
-registry 이름 소유권과 npm 인증 확인 전에는 `private: true`, `UNLICENSED` 잠금을
-해제하지 않는다.
+resource plateau까지 통과한 tarball만 release candidate로 취급한다.

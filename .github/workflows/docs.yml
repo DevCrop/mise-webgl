@@ -55,7 +55,7 @@ jobs:
         run: npm run build:docs
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@ec475cce12cc030bef4d9a9edc9e9240e9b2a2b9 # v4.0.0
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
         with:
           path: ${{ inputs.docs_output_dir || 'apps/mise-docs/dist/public' }}
 
@@ -70,4 +70,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@b017bd23910fcc3bfd91ac82ed9c27963b1475b2 # v4.0.5
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

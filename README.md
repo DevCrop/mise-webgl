@@ -11,14 +11,28 @@ Three.js/WebGL 경험을 Scene 단위로 구성하고 Scroll·Auto 진행, DOM m
 | `mise-php` | `packages/mise-php` | PHP Component renderer |
 | `mise-docs` | `apps/mise-docs` | 공식 문서 standalone consumer |
 
+## Toolchain (Host 정렬용)
+
+Host·CI·이 저장소는 아래 버전을 맞춘다.
+
+| Tool | Version | 근거 |
+|---|---|---|
+| Node.js | **20.19.x** (`20.19.5`) | [`.nvmrc`](.nvmrc), [`.node-version`](.node-version) |
+| npm | **10.8.x** (`10.8.2`) | [`package.json`](package.json) `packageManager` |
+| TypeScript | **7.0.x** (`^7.0.2`) | root / workspace `devDependencies` |
+| three (peer) | **^0.185.0** | `mise-webgl` `peerDependencies` |
+
+```bash
+nvm use          # .nvmrc → 20.19.5
+corepack enable  # packageManager npm@10.8.2
+```
+
 ## 시작
 
 ```bash
 make setup
 make verify
 ```
-
-Node `20.19.x`를 사용한다. [`.nvmrc`](.nvmrc) 참고.
 
 release tarball:
 
