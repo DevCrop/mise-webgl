@@ -17,14 +17,14 @@ Host·CI·이 저장소는 아래 버전을 맞춘다.
 
 | Tool | Version | 근거 |
 |---|---|---|
-| Node.js | **20.19.x** (`20.19.5`) | [`.nvmrc`](.nvmrc), [`.node-version`](.node-version) |
-| npm | **10.8.x** (`10.8.2`) | [`package.json`](package.json) `packageManager` |
+| Node.js | **22.x LTS** (`22.22.2`) | [`.nvmrc`](.nvmrc), [`.node-version`](.node-version) |
+| npm | **10.9.x** (`10.9.2`) | [`package.json`](package.json) `packageManager` |
 | TypeScript | **7.0.x** (`^7.0.2`) | root / workspace `devDependencies` |
 | three (peer) | **^0.185.0** | `mise-webgl` `peerDependencies` |
 
 ```bash
-nvm use          # .nvmrc → 20.19.5
-corepack enable  # packageManager npm@10.8.2
+nvm use          # .nvmrc → 22.22.2
+corepack enable  # packageManager npm@10.9.2
 ```
 
 ## 시작

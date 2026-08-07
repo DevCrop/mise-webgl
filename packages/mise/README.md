@@ -6,8 +6,8 @@ MISE는 Three.js/WebGL 경험을 Scene 단위로 구성하고 Scroll·Auto 진�
 
 | Tool | Version |
 |---|---|
-| Node.js | `>=20.19.0 <21` (권장 `20.19.5`, `.nvmrc`) |
-| npm | `>=10.8.0` (권장 `10.8.2`) |
+| Node.js | `>=22.12.0 <23` (권장 `22.22.2`, `.nvmrc`) |
+| npm | `>=10.8.0` (권장 `10.9.2`) |
 | TypeScript | `^7.0.2` |
 | three | `^0.185.0` (required peer) |
 | gsap / lenis / @barba/core | optional peers — [`package.json`](./package.json) 참고 |

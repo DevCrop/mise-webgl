@@ -40,6 +40,8 @@ MISE canonical 문서는 `packages/mise/docs/`가 소유한다. entry는 `packag
 
 ## Required verification
 
+Node `22.22.x` LTS (`.nvmrc`)에서 실행한다.
+
 ```bash
 make verify
 npm run verify:host-consumer
