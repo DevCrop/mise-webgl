@@ -56,11 +56,13 @@ make package
 npm install mise-webgl three
 ```
 
-참조 구현: [`examples/host-consumer`](examples/host-consumer)
-
-- 적용 절차: [`packages/mise/docs/ADOPTION.md`](packages/mise/docs/ADOPTION.md)
-- 배포 runbook: [`PUBLISHING.md`](PUBLISHING.md)
-- GitHub/Pages/npm 설정: [`REPO_SETUP.md`](REPO_SETUP.md)
+| | |
+|---|---|
+| Getting started | [`packages/mise/docs/GETTING-STARTED.md`](packages/mise/docs/GETTING-STARTED.md) · [Pages](https://devcrop.github.io/mise-webgl/ko/getting-started/) |
+| 참조 Host | [`examples/host-consumer`](examples/host-consumer) |
+| 제품 적용 | [`packages/mise/docs/ADOPTION.md`](packages/mise/docs/ADOPTION.md) |
+| 배포 | [`PUBLISHING.md`](PUBLISHING.md) |
+| Repo 설정 | [`REPO_SETUP.md`](REPO_SETUP.md) |
 
 ## Agent rules
 

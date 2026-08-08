@@ -18,12 +18,15 @@ TypeScript core package다. MISE Web Foundation은 이 core와 독립
 
 이 package의 `docs` 디렉터리는 Host 저장소와 독립적으로 이동 가능한 MISE 공식 문서 세트다. 문서 해석에 Host 제품명, 디렉터리 구조, 현재 테스트 수와 배포 환경이 필요하면 독립성 위반이다.
 
+**다른 프로젝트에서 npm으로 처음 쓰는 경우** → [`GETTING-STARTED.md`](./GETTING-STARTED.md)
+
 ## 1. 문서 소유권
 
 유형은 학습(Tutorial), 절차(How-to), 참조(Reference), 설명(Explanation)을 뜻한다.
 
 | 유형 | 문서 | 단일 책임 |
 |---|---|---|
+| 학습 | [`GETTING-STARTED.md`](./GETTING-STARTED.md) | npm 설치와 첫 canvas Host 앱 |
 | 참조 | [`ARCHITECTURE.md`](./ARCHITECTURE.md) | 규범, 도메인 모델, 공개 API, 생명주기와 의존 방향 |
 | 설명 | [`WEB-FOUNDATION.md`](./WEB-FOUNDATION.md) | WebGL core·UI·PHP MVC·문서 앱의 상위 package 경계 |
 | 참조 | [`HTML-COMPONENTS.md`](./HTML-COMPONENTS.md) | Component-only HTML·상태·접근성·controller 계약 |
@@ -47,6 +50,7 @@ TypeScript core package다. MISE Web Foundation은 이 core와 독립
 
 | 질문 | 문서 |
 |---|---|
+| npm 설치와 첫 동작하는 코드 | [`GETTING-STARTED`](./GETTING-STARTED.md) |
 | WebGL core 패턴과 MVC가 최상위가 아닌 이유 | [`ARCHITECTURE §3`](./ARCHITECTURE.md#3-최종-공식-패턴), [`DECISIONS`](./DECISIONS.md) |
 | PHP MVC와 Web Foundation package 경계 | [`WEB-FOUNDATION`](./WEB-FOUNDATION.md) |
 | Component로만 DOM을 구성하는 방법 | [`HTML-COMPONENTS`](./HTML-COMPONENTS.md) |

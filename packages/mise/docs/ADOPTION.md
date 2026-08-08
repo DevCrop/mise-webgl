@@ -13,6 +13,10 @@ status: stable
 
 이 package 문서는 MISE를 Host 제품에 적용하고 독립 NPM package로 추출하는 절차다.
 
+npm으로 처음 설치해 최소 canvas를 띄우려면 먼저
+[`GETTING-STARTED.md`](./GETTING-STARTED.md)를 따른다. 이 문서는 그 다음 단계인
+제품 Composition Root·Page·Stage·추출 Gate를 다룬다.
+
 ## 1. 목표 경계
 
 ```text

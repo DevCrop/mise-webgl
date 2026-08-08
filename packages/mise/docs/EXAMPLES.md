@@ -11,6 +11,9 @@ status: stable
 
 # Examples·Playground·Debugging
 
+npm 설치와 최소 Host는 [`GETTING-STARTED.md`](./GETTING-STARTED.md)를 먼저 본다.
+이 문서는 그 다음 단계의 전체 예시·Stage·Playground·logging을 모은다.
+
 ## 1. canvas-only 전체 흐름
 
 ```html

@@ -61,20 +61,16 @@ Trusted Publishing 사용 시 `release.yml`에서 `NPM_TOKEN`/`NODE_AUTH_TOKEN` 
 npm install mise-webgl three
 ```
 
-```ts
-import { createMise, defineExperience, defineProvider, defineScene, scroll } from "mise-webgl";
-import { ThreeRenderer } from "mise-webgl/three";
-import "mise-webgl/styles.css";
-```
-
+첫 사용(설치·Vite·copy-paste 코드): [`packages/mise/docs/GETTING-STARTED.md`](packages/mise/docs/GETTING-STARTED.md)  
+문서 사이트: https://devcrop.github.io/mise-webgl/ko/getting-started/  
 Host 적용: [`packages/mise/docs/ADOPTION.md`](packages/mise/docs/ADOPTION.md)
 
 ## Host 안정성 권장
 
 | 정책 | 용도 |
 |---|---|
-| exact pin `0.1.0` | production |
-| caret `^0.1.0` + lockfile | development |
+| exact pin `0.2.0` | production |
+| caret `^0.2.0` + lockfile | development |
 | Renovate/Dependabot PR | 자동 bump + Host CI gate |
 
 참조 Host: [`examples/host-consumer`](examples/host-consumer)
