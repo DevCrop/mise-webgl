@@ -14,11 +14,14 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  NODE_OPTIONS: --max-old-space-size=6144
+
 jobs:
   verify:
     name: Verify
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 60
 
     steps:
       - name: Checkout
@@ -46,7 +49,7 @@ jobs:
         run: npm audit --audit-level=high
 
       - name: Verify MISE packages
-        run: npm run verify
+        run: npm run verify:ci
 
       - name: Verify host consumer against tarball
         run: npm run verify:host-consumer

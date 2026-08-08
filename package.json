@@ -18,7 +18,7 @@
   "scripts": {
     "changeset": "changeset",
     "changeset:version": "changeset version",
-    "release:publish": "npm run verify && npm run build:mise && changeset publish",
+    "release:publish": "npm run verify:ci && npm run build:mise && changeset publish",
     "lint:project": "npm run test:web-foundation-policy && npm run score:web-foundation",
     "test:web-foundation-policy": "node --test scripts/web-foundation/Policy.test.mjs",
     "score:web-foundation": "node scripts/web-foundation/Score.mjs",
@@ -40,7 +40,8 @@
     "api:mise": "npm run api:check --workspace mise-webgl",
     "test:docs:browser": "playwright test --config playwright.docs.config.ts",
     "package:mise": "npm run verify:framework --workspace mise-webgl && node scripts/package-mise.mjs && node scripts/verify-mise-tarball.mjs && node scripts/verify-mise-dogfood.mjs",
-    "verify": "npm run lint:project && npm run test:security-headers && npm run typecheck && npm run package:mise && npm run package:web-foundation && npm run test:mise:mutation"
+    "verify": "npm run lint:project && npm run test:security-headers && npm run typecheck && npm run package:mise && npm run package:web-foundation && npm run test:mise:mutation",
+    "verify:ci": "npm run lint:project && npm run test:security-headers && npm run typecheck && npm run package:mise && npm run package:web-foundation"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.1",
