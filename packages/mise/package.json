@@ -1,6 +1,6 @@
 {
   "name": "mise-webgl",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Scene-oriented TypeScript framework for Three.js/WebGL experiences.",
   "keywords": [
     "three.js",
