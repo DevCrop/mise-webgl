@@ -9,7 +9,7 @@
     "verify": "npm run typecheck"
   },
   "dependencies": {
-    "mise-webgl": "0.2.0",
+    "mise-webgl": "0.2.2",
     "three": "^0.185.1"
   },
   "devDependencies": {

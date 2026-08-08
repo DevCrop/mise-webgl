@@ -157,8 +157,8 @@ Stage 형태를 사용한다. 예: [`docs/EXAMPLES.md`](./docs/EXAMPLES.md).
 
 | 환경 | 정책 |
 |---|---|
-| production | `"mise-webgl": "0.2.0"` exact |
-| development | `"^0.2.0"` + lockfile |
+| production | `"mise-webgl": "0.2.2"` exact |
+| development | `"^0.2.2"` + lockfile |
 
 참조 Host: 저장소 `examples/host-consumer`.
 

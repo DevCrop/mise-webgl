@@ -13,8 +13,8 @@ npm run verify:host-consumer
 
 | 환경 | 권장 버전 정책 |
 |---|---|
-| production | exact pin (`0.2.0`) |
-| development | caret (`^0.2.0`) + lockfile |
+| production | exact pin (`0.2.2`) |
+| development | caret (`^0.2.2`) + lockfile |
 | automation | Renovate/Dependabot PR + Host CI |
 
 Host CI는 이 예제의 `typecheck`를 최소 gate로 사용하고, 실제 제품 repo에서는 browser regression을 추가한다.

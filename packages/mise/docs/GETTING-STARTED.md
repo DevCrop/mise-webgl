@@ -288,8 +288,8 @@ src/
 
 | 환경 | 정책 |
 |---|---|
-| production | exact pin (`"mise-webgl": "0.2.0"`) |
-| development | caret (`"^0.2.0"`) + lockfile |
+| production | exact pin (`"mise-webgl": "0.2.2"`) |
+| development | caret (`"^0.2.2"`) + lockfile |
 | automation | Dependabot/Renovate PR + Host typecheck CI |
 
 참조 Host 예제: 저장소 `examples/host-consumer`.

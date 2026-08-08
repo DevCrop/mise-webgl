@@ -69,8 +69,8 @@ Host 적용: [`packages/mise/docs/ADOPTION.md`](packages/mise/docs/ADOPTION.md)
 
 | 정책 | 용도 |
 |---|---|
-| exact pin `0.2.0` | production |
-| caret `^0.2.0` + lockfile | development |
+| exact pin `0.2.2` | production |
+| caret `^0.2.2` + lockfile | development |
 | Renovate/Dependabot PR | 자동 bump + Host CI gate |
 
 참조 Host: [`examples/host-consumer`](examples/host-consumer)
