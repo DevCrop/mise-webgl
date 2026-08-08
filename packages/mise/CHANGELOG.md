@@ -1,5 +1,11 @@
 # mise-webgl
 
+## 0.2.1
+
+### Patch Changes
+
+- [`fc9ed7d`](https://github.com/DevCrop/mise-webgl/commit/fc9ed7d0ae0405e5e33b889755e8fc0acfe4e43c) Thanks [@DevCrop](https://github.com/DevCrop)! - Add consumer Getting Started guide with a copy-paste Vite Host example and refresh npm README for external projects.
+
 ## 0.2.0
 
 ### Minor Changes
