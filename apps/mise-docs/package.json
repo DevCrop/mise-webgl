@@ -16,7 +16,7 @@
     "verify": "npm test"
   },
   "dependencies": {
-    "mise-webgl": "0.1.0",
+    "mise-webgl": "0.2.0",
     "mise-php": "0.2.0-rc.1",
     "mise-ui": "0.2.0-rc.1"
   },
