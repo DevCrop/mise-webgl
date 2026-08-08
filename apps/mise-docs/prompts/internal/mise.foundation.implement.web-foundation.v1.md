@@ -24,7 +24,6 @@ relatedDocs:
   - packages/mise/docs/SCSS-SYSTEM.md
   - packages/mise/docs/PROMPT-CATALOG.md
   - packages/mise/docs/DOCUMENT-COMPILER.md
-  - docs/MISE-WEB-FOUNDATION-PLAN.md
 requiredInputs:
   - current worktree
   - canonical MISE docs
@@ -53,7 +52,7 @@ MISE Web Foundation을 canonical Markdown, validator, package, Component, PHP MV
 
 - 현재 dirty tree와 사용자 변경
 - `packages/mise/docs/README.md`의 canonical index
-- `docs/MISE-WEB-FOUNDATION-PLAN.md`의 Phase와 Gate
+- `packages/mise/docs/WEB-FOUNDATION.md`의 Phase와 Gate
 - 기존 `resources/scss/abstract` public API
 - 기존 `mise-webgl` API report와 verification
 
