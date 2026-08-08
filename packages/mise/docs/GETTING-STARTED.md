@@ -92,6 +92,18 @@ body {
 }
 ```
 
+### Vite CSS 타입
+
+`mise-webgl/styles.css` side-effect import를 TypeScript가 허용하려면 Vite client
+타입을 한 번 선언한다.
+
+```ts
+// src/vite-env.d.ts
+/// <reference types="vite/client" />
+```
+
+다른 bundler는 `declare module "*.css";` shim을 추가한다.
+
 ### TypeScript
 
 아래 코드는 copy-paste로 typecheck·실행 가능한 최소 Host다.

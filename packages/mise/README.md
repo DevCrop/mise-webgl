@@ -105,6 +105,9 @@ createMise({
 ```
 
 Scroll Scene을 쓰면 document에 스크롤 높이가 필요하다 (`body { min-height: 300svh; }`).
+Vite에서는 `src/vite-env.d.ts`에 `/// <reference types="vite/client" />`를 둬
+`mise-webgl/styles.css` import가 typecheck되도록 한다.
+
 전체 설치·Vite 절차·import 표는 [`docs/GETTING-STARTED.md`](./docs/GETTING-STARTED.md).
 
 ## Imports
