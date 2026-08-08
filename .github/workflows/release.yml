@@ -37,6 +37,7 @@ jobs:
           registry-url: https://registry.npmjs.org
           package-manager-cache: false
         env:
+          # NPM_TOKEN: rotate via GitHub Secrets; prefer npm Trusted Publishing (OIDC) — see SECURITY.md
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Setup PHP

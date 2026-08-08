@@ -9,3 +9,14 @@ packages/mise/temp/
 apps/mise-docs/temp/
 packages/mise/stryker-setup-*.js
 .DS_Store
+
+# Local credentials and environment (never commit)
+.npmrc
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/

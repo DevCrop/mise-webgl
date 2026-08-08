@@ -32,11 +32,28 @@ npm run build:docs
 3. Version PR merge → `changeset publish`로 npm 배포 + GitHub Release
 4. `docs.yml`이 latest 문서를 Pages에 배포
 
-필수 secret:
+### npm 인증 (권장 순서)
+
+| 방식 | 상태 | 설명 |
+|---|---|---|
+| **Trusted Publishing (OIDC)** | 권장 | 장기 토큰 없이 `release.yml`만으로 publish. [npm 설정](https://www.npmjs.com/package/mise-webgl/access)에서 `DevCrop/mise-webgl` + `release.yml` 연결 |
+| `NPM_TOKEN` secret | 임시/폴백 | Trusted Publishing 전환 전까지만 사용. **저장소·로그·채팅에 절대 기록하지 않음** |
+
+Trusted Publishing 사용 시 `release.yml`에서 `NPM_TOKEN`/`NODE_AUTH_TOKEN` env를 제거하고, publish job에 `npm install -g npm@11` 단계가 필요하다 (Node 22 기본 npm은 OIDC 미지원).
+
+## 보안 운영
+
+- `.npmrc`, `.env*`는 gitignore 대상이다. 로컬 인증은 사용자 홈 디렉터리 `~/.npmrc`만 사용한다.
+- npm granular token은 **bypass 2FA 없이** 발급하지 않는다 (CI publish 실패). bypass 토큰은 7일 만료이므로 Trusted Publishing으로 이전한다.
+- 토큰이 노출되면 즉시 npm에서 revoke → GitHub `NPM_TOKEN` 갱신 → Release workflow 재실행.
+- GitHub Secret scanning / push protection은 `DevCrop/mise-webgl`에서 활성화되어 있다.
+- Dependabot이 npm·GitHub Actions 의존성을 주간 점검한다 (`.github/dependabot.yml`).
+
+필수 secret (Trusted Publishing 미사용 시만):
 
 | Secret | 용도 |
 |---|---|
-| `NPM_TOKEN` | npm publish |
+| `NPM_TOKEN` | npm publish (임시) |
 
 ## 소비자 설치
 

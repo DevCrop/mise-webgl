@@ -32,15 +32,41 @@ Settings → Pages → Source: **GitHub Actions**
 - Required status check: **Required**
 - Require PR before merge (권장)
 
-## 4. npm publish secrets
+## 4. npm publish 인증
 
-Repository secrets:
+### 권장: Trusted Publishing (OIDC)
+
+장기 `NPM_TOKEN` 없이 publish한다.
+
+1. [mise-webgl package access](https://www.npmjs.com/package/mise-webgl/access) → **GitHub Actions** trusted publisher 추가
+   - Organization/user: `DevCrop`
+   - Repository: `mise-webgl`
+   - Workflow: `release.yml`
+   - Action: **Allow npm publish**
+2. `release.yml`은 `id-token: write` 권한과 `registry-url`만 유지하고 `NPM_TOKEN` secret은 제거한다.
+3. publish job에서 `npm install -g npm@11`로 OIDC 호환 CLI를 보장한다.
+
+### 임시: GitHub secret `NPM_TOKEN`
+
+Trusted Publishing 전환 전까지만 사용한다.
 
 | Secret | 용도 |
 |---|---|
 | `NPM_TOKEN` | `release.yml`에서 `mise-webgl` publish |
 
-npm에서 Automation token을 발급하고 `NPM_TOKEN`으로 등록한다.
+npm granular access token 발급 시:
+
+- Packages: **Read and write** (All packages 또는 `mise-webgl`만)
+- **Bypass 2FA** 활성화 (CI publish 필수)
+- 토큰 값은 GitHub Secrets에만 저장하고 채팅·로그·커밋에 남기지 않는다
+- write 토큰은 7일 만료 → Trusted Publishing으로 이전
+
+```bash
+gh secret set NPM_TOKEN --repo DevCrop/mise-webgl
+# 프롬프트에 토큰 붙여넣기 (명령줄 인자로 전달하지 않음)
+```
+
+토큰 노출 시: npm에서 즉시 revoke → 새 토큰 발급 → secret 갱신.
 
 ## 5. Changesets bot (선택)
 
