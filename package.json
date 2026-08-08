@@ -23,7 +23,9 @@
     "test:web-foundation-policy": "node --test scripts/web-foundation/Policy.test.mjs",
     "score:web-foundation": "node scripts/web-foundation/Score.mjs",
     "verify:web-foundation": "npm run verify --workspace mise-ui && npm run verify --workspace mise-php && npm run verify --workspace mise-docs",
+    "verify:web-foundation:ci": "npm run verify --workspace mise-ui && npm run verify --workspace mise-php",
     "package:web-foundation": "npm run verify:web-foundation && node scripts/web-foundation/PackageDogfood.mjs",
+    "package:web-foundation:ci": "npm run verify:web-foundation:ci && node scripts/web-foundation/PackageDogfood.mjs",
     "test:security-headers": "node scripts/verify-security-headers.mjs --self-test",
     "typecheck": "tsc --noEmit",
     "typecheck:mise": "npm run typecheck --workspace mise-webgl",
@@ -41,7 +43,7 @@
     "test:docs:browser": "playwright test --config playwright.docs.config.ts",
     "package:mise": "npm run verify:framework --workspace mise-webgl && node scripts/package-mise.mjs && node scripts/verify-mise-tarball.mjs && node scripts/verify-mise-dogfood.mjs",
     "verify": "npm run lint:project && npm run test:security-headers && npm run typecheck && npm run package:mise && npm run package:web-foundation && npm run test:mise:mutation",
-    "verify:ci": "npm run lint:project && npm run test:security-headers && npm run typecheck && npm run package:mise && npm run package:web-foundation"
+    "verify:ci": "npm run lint:project && npm run test:security-headers && npm run typecheck && npm run package:mise && npm run package:web-foundation:ci"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.1",
