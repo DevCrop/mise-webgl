@@ -1,5 +1,11 @@
 # mise-webgl
 
+## 0.2.2
+
+### Patch Changes
+
+- [`da3dd58`](https://github.com/DevCrop/mise-webgl/commit/da3dd58ea59c9c333138c587e8d650800ef95c21) Thanks [@DevCrop](https://github.com/DevCrop)! - Document Vite CSS module types so external Host typecheck accepts mise-webgl/styles.css.
+
 ## 0.2.1
 
 ### Patch Changes
