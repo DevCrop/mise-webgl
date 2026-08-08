@@ -46,7 +46,7 @@ if ($routes === []) {
 }
 
 foreach (array_keys($routes) as $route) {
-    $response = $application->handle($route);
+    $response = $application->handle(toRequestUri($basePath, $route));
     if ($response->status !== 200) {
         fwrite(STDERR, "MISE Docs static export failed for {$route}.\n");
         exit(1);
@@ -54,7 +54,7 @@ foreach (array_keys($routes) as $route) {
   writeHtml($publicDirectory, $route, $response->body);
 }
 
-$home = $application->handle('/ko');
+$home = $application->handle(toRequestUri($basePath, '/ko'));
 if ($home->status !== 200) {
     fwrite(STDERR, "MISE Docs static export failed for /ko.\n");
     exit(1);
@@ -96,4 +96,13 @@ function redirectDocument(string $target): string
         . '</head><body>'
         . '<p><a href="' . $escaped . '">MISE Documentation</a></p>'
         . '</body></html>';
+}
+
+function toRequestUri(string $basePath, string $route): string
+{
+    if ($basePath === '/') {
+        return $route;
+    }
+
+    return rtrim($basePath, '/') . $route;
 }

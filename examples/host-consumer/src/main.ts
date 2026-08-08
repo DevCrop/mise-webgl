@@ -6,6 +6,7 @@ import {
   defineScene,
   scroll,
 } from "mise-webgl";
+import { ConsoleLogSink } from "mise-webgl/console";
 import { ThreeRenderer } from "mise-webgl/three";
 import { PerspectiveCamera, Scene } from "three";
 
@@ -51,7 +52,7 @@ export function mountHost(): void {
     providers: [provider],
     initialExperience: "journey",
     initialExperienceRoot: "body",
-    logger: createMiseLogger(),
+    logger: createMiseLogger({ sink: new ConsoleLogSink() }),
     surface: {
       fallbackText: "WebGL을 사용할 수 없어 정적 화면을 표시합니다.",
     },
