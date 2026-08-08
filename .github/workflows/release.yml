@@ -46,6 +46,9 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --ignore-scripts
 
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
       - name: Create release pull request or publish
         id: changesets
         uses: changesets/action@dafcd08ca059722e5ab7b05b4069899018ee94c8 # v1.4.10
