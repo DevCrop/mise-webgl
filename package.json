@@ -46,10 +46,10 @@
     "verify:ci": "npm run lint:project && npm run test:security-headers && npm run typecheck && npm run package:mise && npm run package:web-foundation:ci"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.5.1",
-    "@changesets/cli": "^2.29.8",
-    "@playwright/test": "^1.55.0",
-    "@types/node": "^22.15.0",
+    "@changesets/changelog-github": "^1.0.0",
+    "@changesets/cli": "^3.0.0",
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.2.0",
     "typescript": "^7.0.2"
   }
 }
